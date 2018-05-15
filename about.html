@@ -8044,16 +8044,17 @@
             width: 100%;
             display: block;
         }
-
+    
         body {
             background-color: #fafafa;
         }
-
+    
         .fn-logo {
             display: inline-block;
             border-radius: 50%;
+            width: 133px;
         }
-
+    
         header {
             padding-top: 50px;
             text-align: center;
@@ -8061,7 +8062,15 @@
             padding-bottom: 50px;
             background-color: #eee;
         }
-
+    
+        header a {
+            color: #6b6b6b;
+        }
+    
+        header a:hover {
+            color: #1779ba;
+        }
+    
         h1,
         header h2 {
             display: block;
@@ -8070,41 +8079,42 @@
             padding: 0;
             margin: 0;
         }
-
+    
         h1 {
             font-size: 2.2rem;
             margin-top: 20px;
         }
-
+    
         h3 {
             font-size: 1.7rem;
         }
-
+    
         h4 {
             font-size: 1.3rem;
         }
-
+    
         header h2 {
-            font-size: 1.6rem;
+            font-size: .9rem;
             color: #6b6b6b;
+            text-transform: uppercase;
         }
-
+    
         .fn-book {
             background-color: #fff;
-            padding: 50px 50px;
+            padding: 50px 50px 0 50px;
             border-bottom: 1px solid #ccc;
         }
-
+    
         .fn-book img {
             display: inline;
             padding: 0 15px 15px 0;
         }
-
+    
         .fn-services {
             background-color: #45abe1;
             padding: 50px 0;
         }
-
+    
         .fn-services h3 {
             display: block;
             font-weight: bold;
@@ -8112,29 +8122,37 @@
             text-align: center;
             width: 100%;
         }
-
+    
         .fn-price {
             font-weight: bold;
         }
-
+    
         .fn-services {
-            padding: 50px;
+            padding: 50px 50px 0 50px;
         }
-
+    
+        .pb30 {
+            padding-bottom: 30px;
+        }
+    
+        .m50 {
+            margin-bottom: 50px;
+        }
+    
         .fn-services h3 {
             color: #fff;
         }
-
+    
         .fn-nav ul {
             display: inline-block;
             width: auto;
         }
-
+    
         .fn-nav li {
             display: inline-block;
             list-style: none;
         }
-
+    
         .fn-nav li a {
             display: block;
             line-height: 40px;
@@ -8142,22 +8160,22 @@
             color: #fff;
             margin: 0;
         }
-
+    
         .fn-nav li a.selected,
         .fn-nav li a:hover {
-            background-color: #0c3d5d;
+            background-color: #1779ba;
         }
-
+    
         .fn-footer {
             padding: 50px;
             background-color: #226b92;
             color: #fff;
         }
-
+    
         section .card {
             height: 100%;
         }
-
+    
         @font-face {
             font-family: "untitled-font-1";
             src: url("fonts/untitled-font-1.eot");
@@ -8167,9 +8185,9 @@
             url("fonts/untitled-font-1.svg#untitled-font-1") format("svg");
             font-weight: normal;
             font-style: normal;
-
+    
         }
-
+    
         [data-icon]:before {
             font-family: "untitled-font-1" !important;
             content: attr(data-icon);
@@ -8182,7 +8200,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
+    
         [class^="icon-"]:before,
         [class*=" icon-"]:before {
             font-family: "untitled-font-1" !important;
@@ -8195,29 +8213,73 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
+    
         .icon-twitter:before {
             content: "\61";
         }
-
+    
         .icon-linkedin:before {
             content: "\62";
         }
-
+    
         .icon-github:before {
             content: "\63";
         }
-
+    
+        .icon-facebook-square:before {
+            content: "\64";
+        }
+    
+        .icon-envelope:before {
+            content: "\65";
+        }
+    
+    
         .fn-icons div {
             font-size: 1.5rem;
             display: inline-block;
             padding: 4px 8px;
         }
-
+    
         .fn-fam {
-            -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+            -webkit-filter: grayscale(100%);
+            /* Safari 6.0 - 9.0 */
             filter: grayscale(100%);
         }
+    
+        .fn-book .icon,
+        .fn-book span {
+            width: auto;
+            display: inline-block;
+        }
+    
+        .fn-book h3 {
+            margin-top: 20px;
+        }
+    
+        .fn-book .icon {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    
+        .fn-contact .fn-book section {
+            padding-bottom: 50px;
+        }
+    
+        .fn-desc {
+            display: inline-block;
+            max-width: 600px;
+            padding: 20px 50px;
+        }
+    </style>
+    <style>
+    .fn-content {
+        margin-bottom: 50px;
+    }
+    .fn-content span {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
     </style>
 </head>
 
@@ -8239,7 +8301,7 @@
 
     <header class="grid-x">
         <div class="cell small-12">
-            <a href="/"><img src="images/fabionolasco@1x.jpg" alt="Fabio Nolasco" class="fn-logo"></a>
+            <a href="/"><img src="/images/fabionolasco@1x.jpg" srcset="/images/fabionolasco@2x.jpg 2x, /images/fabionolasco@3x.jpg 3x" alt="Fabio Nolasco" class="fn-logo"></a>
         </div>
         <div class="cell small-12">
             <h1>About</h1>
@@ -8247,12 +8309,13 @@
     </header>
 
     <section class="fn-book grid-x">
-        <div class="cell small-12 medium-4 text-right">
+        <div class="cell small-12 medium-4 text-center large-text-right">
             <img src="images/f1.jpg" class="fn-fam" alt="Fabio - family">
         </div>
         <div class="cell small-12 medium-8">
             <div class="fn-content">
-                <p>Hi there!
+                <p>
+                    <span>Hi there!</span>
                     <br>
                     <br>I started in the Web Development world around 1997, while still a young fellow. In 2001, right before College, I
                     began to work professionally as a Full Stack LAMP Developer. Finally, in 2012 I got the opportunity to focus on Front-end
@@ -8278,20 +8341,21 @@
         </div>
     </section>
 <section class="fn-book grid-x">
-    <div class="cell small-12 medium-4 text-right">
+    <div class="cell small-12 medium-4 text-center large-text-right pb30">
         <img src="images/professional-front-end-architecture-book.jpg" alt="Book - Professional Front-end Architecture">
     </div>
     <div class="cell small-12 medium-8">
         <h3>Book - Professional Front-end Architecture</h3>
         <p>
-            To break free from the survival mode and move into “continous innovation” we need to have robust methodological principles
-            to guide our Front-end Architecture work. Choosing a teck stack and configuring a dev environment is not enoguh.
-            In this book you will show an innovative approach for Front-end Architecture that will greatly benefit your projects
-            and Front-end Shops.
-            <a href="#">More...</a>
+             To break free from the survival mode and move into “Continous Innovation” we need to fundament our Front-end Architecture
+            work over robust methodological principles. Choosing a teck stack and configuring a dev environment is not enoguh. This book
+            presents the concepts and the know-how (trade secrets) of an innovative approach to Front-end Architecture. Ready to bring
+            your front-end projects to the next level?
+            <br>
+            <a href="#">Read more...</a>
         </p>
         <p class="fn-price">
-            $65.00
+             Promotional price: $65.00
         </p>
         <p>
             <a href="#" class="button success">Buy now at Amazon</a>
@@ -8305,7 +8369,7 @@
             </div>
             <div class="cell-small-12">
                 <div class="grid-x grid-padding-x align-stretch">
-                    <div class="cell small-12 medium-12 large-6 align-self-stretch">
+                    <div class="cell small-12 medium-12 large-6 align-self-stretch m50">
                         <div class="card">
                             <div class="card-divider">
                                 <h4>Consulting / Advisory</h4>
@@ -8326,7 +8390,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell small-12 medium-12 large-6 align-self-stretch">
+                    <div class="cell small-12 medium-12 large-6 align-self-stretch m50">
                         <div class="card">
                             <div class="card-divider">
                                 <h4>Training</h4>
@@ -8351,16 +8415,11 @@
     </section>
 
     <footer class="fn-footer grid-x">
-        <span class="cell text-center">© 2018</div>
+        <span class="cell text-center">Fabio Nolasco © 2018</div>
     </footer>
 
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(function () {
-                    console.log('Service Worker Registered');
-                });
-        }
+        "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js").then(function () { console.log("Service Worker Registered") });
     </script>
 </body>
 
