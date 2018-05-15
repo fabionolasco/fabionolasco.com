@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Fabio Nolasco - Front-end Architect">
+    <meta name="description" content="Fabio Nolasco - Front-end Architect - About">
     <meta name="theme-color" content="#45abe1">
     <link rel="manifest" href="manifest.json">
-    <title>Fabio Nolaco - Front-end Architect</title>
+    <title>Fabio Nolaco - Front-end Architect - About</title>
     <style>
         @charset "UTF-8";
         @media print,
@@ -8124,85 +8124,100 @@
         .fn-services h3 {
             color: #fff;
         }
+
         .fn-nav ul {
             display: inline-block;
             width: auto;
-            margin: 0;
         }
+
         .fn-nav li {
             display: inline-block;
             list-style: none;
         }
+
         .fn-nav li a {
             display: block;
             line-height: 40px;
             padding: 0 20px;
             color: #fff;
+            margin: 0;
         }
+
         .fn-nav li a.selected,
         .fn-nav li a:hover {
             background-color: #0c3d5d;
         }
+
         .fn-footer {
             padding: 50px;
             background-color: #226b92;
             color: #fff;
         }
+
         section .card {
             height: 100%;
         }
-@font-face {
-  font-family: "untitled-font-1";
-  src:url("fonts/untitled-font-1.eot");
-  src:url("fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"),
-    url("fonts/untitled-font-1.woff") format("woff"),
-    url("fonts/untitled-font-1.ttf") format("truetype"),
-    url("fonts/untitled-font-1.svg#untitled-font-1") format("svg");
-  font-weight: normal;
-  font-style: normal;
 
-}
+        @font-face {
+            font-family: "untitled-font-1";
+            src: url("fonts/untitled-font-1.eot");
+            src: url("fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"),
+            url("fonts/untitled-font-1.woff") format("woff"),
+            url("fonts/untitled-font-1.ttf") format("truetype"),
+            url("fonts/untitled-font-1.svg#untitled-font-1") format("svg");
+            font-weight: normal;
+            font-style: normal;
 
-[data-icon]:before {
-  font-family: "untitled-font-1" !important;
-  content: attr(data-icon);
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+        }
 
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "untitled-font-1" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+        [data-icon]:before {
+            font-family: "untitled-font-1" !important;
+            content: attr(data-icon);
+            font-style: normal !important;
+            font-weight: normal !important;
+            font-variant: normal !important;
+            text-transform: none !important;
+            speak: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-.icon-twitter:before {
-  content: "\61";
-}
-.icon-linkedin:before {
-  content: "\62";
-}
-.icon-github:before {
-  content: "\63";
-}
-.fn-icons div {
-    font-size: 1.5rem;
-    display: inline-block;
-    padding: 4px 8px;
-}
+        [class^="icon-"]:before,
+        [class*=" icon-"]:before {
+            font-family: "untitled-font-1" !important;
+            font-style: normal !important;
+            font-weight: normal !important;
+            font-variant: normal !important;
+            text-transform: none !important;
+            speak: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-twitter:before {
+            content: "\61";
+        }
+
+        .icon-linkedin:before {
+            content: "\62";
+        }
+
+        .icon-github:before {
+            content: "\63";
+        }
+
+        .fn-icons div {
+            font-size: 1.5rem;
+            display: inline-block;
+            padding: 4px 8px;
+        }
+
+        .fn-fam {
+            -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+            filter: grayscale(100%);
+        }
     </style>
 </head>
 
@@ -8210,9 +8225,15 @@
 
     <nav class="fn-nav">
         <ul>
-            <li><a href="/" class="selected">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/about.html" class="selected">About</a>
+            </li>
+            <li>
+                <a href="/contact.html">Contact</a>
+            </li>
         </ul>
     </nav>
 
@@ -8221,40 +8242,62 @@
             <a href="/"><img src="images/fabionolasco@1x.jpg" alt="Fabio Nolasco" class="fn-logo"></a>
         </div>
         <div class="cell small-12">
-            <h1>Fabio Nolasco</h1>
-        </div>
-        <div class="cell small-12">
-            <h2>Front-end Architect</h2>
-        </div>
-        <div class="cell small-12 fn-icons">
-            <a href="https://twitter.com/_fabionolasco" title="Go to my Twitter" target="_blank"><div class="icon icon-twitter"></div></a>
-            <a href="https://www.linkedin.com/in/gomidefabio/" title="Go to my LinkedIn" target="_blank"><div class="icon icon-linkedin"></div></a>
-            <a href="https://github.com/fabionolasco" title="Go to my Github" target="_blank"><div class="icon icon-github"></div></a>
+            <h1>About</h1>
         </div>
     </header>
 
     <section class="fn-book grid-x">
         <div class="cell small-12 medium-4 text-right">
-            <img src="images/professional-front-end-architecture-book.jpg" alt="Book - Professional Front-end Architecture">
+            <img src="images/f1.jpg" class="fn-fam" alt="Fabio - family">
         </div>
         <div class="cell small-12 medium-8">
-            <h3>Book - Professional Front-end Architecture</h3>
-            <p>
-                To break free from the survival mode and move into “continous innovation” we need to have robust methodological principles
-                to guide our Front-end Architecture work. Choosing a teck stack and configuring a dev environment is not
-                enoguh. In this book you will show an innovative approach for Front-end Architecture that will greatly benefit
-                your projects and Front-end Shops.
-                <a href="#">More...</a>
-            </p>
-            <p class="fn-price">
-                $65.00
-            </p>
-            <p>
-                <a href="#" class="button success">Buy now at Amazon</a>
-            </p>
+            <div class="fn-content">
+                <p>Hi there!
+                    <br>
+                    <br>I started in the Web Development world around 1997, while still a young fellow. In 2001, right before College, I
+                    began to work professionally as a Full Stack LAMP Developer. Finally, in 2012 I got the opportunity to focus on Front-end
+                    Development, my long time passion! I am currently a full time Senior Front-end Architect, which gives me opportunity
+                    to lead Front-end shops, set the standards for the development work, define seamless workflow for the developers,
+                    provide assistance to the most difficult challenges in each project, and conduct exploratory research into new technologies
+                    with prototypes and POC's.</p>
+                <p>My job also involves the analysis and implementation of measures to guarantee that our Front-end products are secure,
+                    fast, testable, scalable, maintainable, well documented and as future proof as possible. I also aim to favor code
+                    patterns and architectures that will facilitate an easy conversion of the Apps between Web, Mobile, Desktop and Wearables
+                    Applications.</p>
+                <p>An uncommon thing about myself is that I went to College for Forest Engineering. My goal at that time was to work with
+                    Software Development to solve to real world problems. As time reveled, programming inside Engineering was often more
+                    complex than other areas, what was very beneficial to me. That also created in me a robust systemic and analytical
+                    thinking process, as well as a solid ability for Project Management, through a mindset focused on balancing Scope,
+                    Time, Resources, Quality and Budget. But despite my appreciation for that Engineering background, I was aware of
+                    the importance of formal preparation in Computer Science, so I made sure to also take several dozen courses on that
+                    field, some in college level.</p>
+                <p>It is the combination of it all: the Engineering mindset, hundreds of courses in formal preparation, and 14+ years of
+                    market experience that empowers me to be an efficient and effective Front-end Architect, able to work with projects
+                    of all sorts of subjects and complexity levels.</p>
+            </div>
         </div>
     </section>
-
+<section class="fn-book grid-x">
+    <div class="cell small-12 medium-4 text-right">
+        <img src="images/professional-front-end-architecture-book.jpg" alt="Book - Professional Front-end Architecture">
+    </div>
+    <div class="cell small-12 medium-8">
+        <h3>Book - Professional Front-end Architecture</h3>
+        <p>
+            To break free from the survival mode and move into “continous innovation” we need to have robust methodological principles
+            to guide our Front-end Architecture work. Choosing a teck stack and configuring a dev environment is not enoguh.
+            In this book you will show an innovative approach for Front-end Architecture that will greatly benefit your projects
+            and Front-end Shops.
+            <a href="#">More...</a>
+        </p>
+        <p class="fn-price">
+            $65.00
+        </p>
+        <p>
+            <a href="#" class="button success">Buy now at Amazon</a>
+        </p>
+    </div>
+</section>
     <section class="fn-services">
         <div class="grid-x">
             <div class="cell-small-12">
@@ -8269,8 +8312,9 @@
                             </div>
                             <div class="card-section">
                                 <p>
-                                    In this service I will assist your organization to implement professional Front-end Architecture guidelines, as well as to identify the best opportunities for quality improvement and for optimizations
-                                    in terms of code, tooling, workflow and management processes. Results expected:
+                                    In this service I will assist your organization to implement professional Front-end Architecture guidelines, as well as to
+                                    identify the best opportunities for quality improvement and for optimizations in terms
+                                    of code, tooling, workflow and management processes. Results expected:
                                 </p>
                                 <ul>
                                     <li>Higher productivity</li>
@@ -8288,9 +8332,10 @@
                                 <h4>Training</h4>
                             </div>
                             <div class="card-section">
-                                <p>Pracital training in Front-end Architecture for your team! During this training your team will review the principles of professional Front-end Architecture and participate
-                                    of exercises to fix and validade the knowledge obtained. Here are some of the things
-                                    that we can do:
+                                <p>Pracital training in Front-end Architecture for your team! During this training your team
+                                    will review the principles of professional Front-end Architecture and participate of
+                                    exercises to fix and validade the knowledge obtained. Here are some of the things that
+                                    we can do:
                                 </p>
                                 <ul>
                                     <li>Katas - Simulation of architectural challenges</li>
