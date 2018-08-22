@@ -1,6 +1,10 @@
 {
     "name": "Fabio Nolasco - Front-end Architect",
     "short_name": "FNolasco",
+    "start_url": "https://fabionolasco.com/",
+    "display": "standalone",
+    "background_color": "#fafafa",
+    "theme_color": "#45abe1",
     "icons": [
         {
             "src": "\/images\/android-icon-36x36.png",
@@ -44,10 +48,5 @@
             "type": "image\/png",
             "density": "4.0"
         }
-    ],
-    "start_url": "/index.html",
-    "gcm_sender_id": "103953800507",
-    "display": "standalone",
-    "background_color": "#fafafa",
-    "theme_color": "#45abe1"
+    ]
 }
