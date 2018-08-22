@@ -2,6 +2,7 @@
     "name": "Fabio Nolasco - Front-end Architect",
     "short_name": "FNolasco",
     "start_url": "https://fabionolasco.com/",
+    "gcm_sender_id": "103953800507",
     "display": "standalone",
     "background_color": "#fafafa",
     "theme_color": "#45abe1",
