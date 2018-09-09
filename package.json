@@ -10,7 +10,7 @@
     "copy-images-w": "sync-files --watch source/images dist/images",
     "copy-fonts-w": "sync-files --watch source/fonts dist/fonts",
     "server": "http-server ./dist",
-    "prepare": "rm -Rf dist && mkdir dist && cp source/*.{js,json} dist/",
+    "prepare": "rm -Rf dist && mkdir dist && cp source/*.{js,webmanifest} dist/",
     "build-cmds": "npm run html && npm run copy-images && npm run copy-fonts",
     "build": "npm run prepare && npm run build-cmds",
     "dev": "npm run prepare && npm run dev-cmds",
