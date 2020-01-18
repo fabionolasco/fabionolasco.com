@@ -9,18 +9,14 @@ var filesToCache = [
     '/fonts/untitled-font-1.svg',
     '/fonts/untitled-font-1.ttf',
     '/fonts/untitled-font-1.woff',
-    '/images/professional-front-end-architecture-book.webp',
+    '/images/jp2/professional-front-end-architecture-book.webp',
     '/images/professional-front-end-architecture-book.jpg',
-    '/images/professional-front-end-architecture-book.jpx',
-    '/images/professional-front-end-architecture-book.jp2',
-    '/images/professional-front-end-architecture-book.webp',
     '/images/fabionolasco-266.jpg',
     '/images/fabionolasco-266.webp',
     '/images/fabionolasco-133.webp',
     '/images/fabionolasco-133.jpg',
-    '/images/f1.jp2',
     '/images/f1.jpg',
-    '/images/f1.webp'
+    '/images/jp2/f1.webp'
 ];
 self.addEventListener('install', function (e) {
     e.waitUntil(
