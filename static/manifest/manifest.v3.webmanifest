@@ -1,7 +1,7 @@
 {
     "name": "FabioNolasco",
     "short_name": "FNolasco",
-    "start_url": "../index.html",
+    "start_url": "https://fabionolasco.com/",
     "gcm_sender_id": "103953800507",
     "display": "standalone",
     "background_color": "#fafafa",
