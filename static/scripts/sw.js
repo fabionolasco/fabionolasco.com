@@ -1,9 +1,9 @@
 var cacheName = 'fabio-nolasco-website';
 var filesToCache = [
     '/',
-    '/index.html',
-    '/about.html',
-    '/contact.html'
+    '/contact',
+    '/about',
+    '/404'
 ];
 self.addEventListener('install', function (e) {
     e.waitUntil(

@@ -1,0 +1,19 @@
+{
+  "name": "fabionolasco.com",
+  "version": "1.0.0",
+  "description": "This is a very simple website made with Hugo - static website generator. It was initially done simply with NPM Scripts, concatenating partial HTML files. However, the maintenance of the packages became troublesome, and the dependencies very difficult to sync. Hugo is a bigger project and will help me keep this website up-to-date.",
+  "scripts": {
+    "dev": "hugo server -D",
+    "build": "hugo --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabionolasco/fabionolasco.com.git"
+  },
+  "author": "Fabio Nolasco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabionolasco/fabionolasco.com/issues"
+  },
+  "homepage": "https://github.com/fabionolasco/fabionolasco.com#readme"
+}
