@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" (dict "heroType" "small") -}}
+
+        <h1 class="fn-404">Sorry... page not found!</h1>
+
+        {{ partial "book.html" . }}
+        {{ partial "services.html" . }}
+        {{- partial "footer.html" . -}}
+        {{- partial "scripts.html" . -}}
+    </body>
+</html>

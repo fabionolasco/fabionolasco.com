@@ -1,0 +1,26 @@
+<script>
+    "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js").then(function () { console.log("Service Worker Registered") });
+    (function selected() { var page = document.getElementsByTagName("header")[0].getAttribute('data-name'); document.getElementById(page).className += ' selected'; }());
+</script>
+
+<!-- ThreeJS -->
+<script defer src="/scripts/three.r95.min.js"></script>
+
+<!-- Waves -->
+<script defer src="/scripts/vanta.waves.min.js"></script>
+
+<!-- Initiate Waves -->
+<script>
+    window.addEventListener('load', function () {
+        VANTA.WAVES({
+            el: "header",
+            mouseControls: true,
+            touchControls: true,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x828282
+        });
+    });
+</script>

@@ -1,0 +1,70 @@
+<nav class="fn-nav">
+    <ul>
+        <li>
+        <a href="/" id="fn-link-home" 
+        class="{{ if eq .pParams.title "Home" }}selected{{ end }}">Home</a>
+        </li>
+        <li>
+            <a href="/about" id="fn-link-about"
+            class="{{ if eq .pParams.title "About" }}selected{{ end }}">About</a>
+        </li>
+        <li>
+            <a href="/contact" id="fn-link-contact"
+            class="{{ if eq .pParams.title "Contact" }}selected{{ end }}">Contact</a>
+        </li>
+    </ul>
+</nav>
+
+<header class="grid-x fn-link-home fn-hero-{{.heroType}}" 
+    data-name="fn-link-home fn-hero-{{.heroType}}">
+
+    {{ partial "photo.html" . }}
+
+    {{ if eq .heroType "big" }}
+        <div class="cell small-12">
+            <h1>Fabio Nolasco</h1>
+        </div>
+        <div class="cell small-12">
+            <h2>Lead Front-end Architect at a global company <br>
+                Professor at University of North Carolina</h2>
+        </div>
+        <div class="cell small-12">
+            <span class="fn-desc">
+                "I'm passionate about the connections between Front-end Development and Software Architecture, System
+                Design, User Experience, IoT and Artificial Intelligence."
+            </span>
+        </div>
+        <div class="cell small-12 fn-icons">
+            <a href="https://twitter.com/_fabionolasco" rel="noopener  noreferrer" title="Go to my Twitter" target="_blank">
+                <div class="icon icon-twitter">&nbsp;</div>
+            </a>
+            <a href="https://www.linkedin.com/in/fabionolasco/" rel="noopener  noreferrer" title="Go to my LinkedIn"
+                target="_blank">
+                <div class="icon icon-linkedin">&nbsp;</div>
+            </a>
+            <a href="https://github.com/fabionolasco" rel="noopener  noreferrer" title="Go to my Github" target="_blank">
+                <div class="icon icon-github">&nbsp;</div>
+            </a>
+        </div>
+    {{ end }}
+
+    {{ if eq .heroType "small" }}
+        <div class="cell small-12 fn-icons">
+            <h1>Fabio Nolasco</h1>
+            <a href="https://twitter.com/_fabionolasco" rel="noopener  noreferrer" title="Go to my Twitter" target="_blank">
+                <div class="icon icon-twitter">&nbsp;</div>
+            </a>
+            <a href="https://www.linkedin.com/in/fabionolasco/" rel="noopener  noreferrer" title="Go to my LinkedIn"
+                target="_blank">
+                <div class="icon icon-linkedin">&nbsp;</div>
+            </a>
+            <a href="https://github.com/fabionolasco" rel="noopener  noreferrer" title="Go to my Github" target="_blank">
+                <div class="icon icon-github">&nbsp;</div>
+            </a>
+        </div>
+        <div class="cell small-12">
+            <h2>{{ .pParams.title }}</h2>
+        </div>
+    {{ end }}
+
+</header>

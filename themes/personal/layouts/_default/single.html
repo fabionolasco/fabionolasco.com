@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" (dict "heroType" "small" "pParams" .Page.Params ) -}}
+        {{- block "main" . }}
+
+        <div class="cell small-12">
+            {{ .Content }}
+        </div>
+            
+        {{- end }}
+        {{ partial "book.html" . }}
+        {{ partial "services.html" . }}
+        {{- partial "footer.html" . -}}
+        {{- partial "scripts.html" . -}}
+    </body>
+</html>

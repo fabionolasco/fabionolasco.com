@@ -1,0 +1,2 @@
+{{ $options := (dict "outputStyle" "compressed") }}
+<style type="text/css">{{ (resources.Get "scss/main.scss" | toCSS $options).Content | safeCSS }}</style>
