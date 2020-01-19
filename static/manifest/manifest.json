@@ -1,7 +1,7 @@
 {
     "name": "FabioNolasco",
     "short_name": "FNolasco",
-    "start_url": "https://fabionolasco.com/?utm_source=a2hs",
+    "start_url": "/?utm_source=a2hs",
     "gcm_sender_id": "103953800507",
     "display": "standalone",
     "crossorigin": "use-credentials",
