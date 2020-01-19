@@ -5,6 +5,7 @@
         {{- partial "header.html" (dict "heroType" "big" "pParams" .Page.Params ) -}}
         {{- block "main" . }}{{- end }}
         {{ partial "book.html" . }}
+        {{- partial "partner-sites.html" . -}}
         {{ partial "services.html" . }}
         {{- partial "footer.html" . -}}
         {{- partial "scripts.html" . -}}

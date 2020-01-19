@@ -60,7 +60,12 @@ h1 {
 }
 
 h3 {
-    font-size: 1.7rem
+    font-size: 1.7rem;
+    color: #1f5069;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 30px;
+    width: 100%;
 }
 
 h4 {
@@ -125,14 +130,6 @@ header h2 {
     padding: 50px 0
 }
 
-.fn-services h3 {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 30px;
-    text-align: center;
-    width: 100%
-}
-
 .fn-price {
     font-weight: 700
 }
@@ -147,10 +144,6 @@ header h2 {
 
 .m50 {
     margin-bottom: 50px
-}
-
-.fn-services h3 {
-    color: #1f5069
 }
 
 .fn-nav ul {
@@ -333,4 +326,63 @@ section .card {
 
 .hidden {
     display: none;
+}
+
+.site-cards {
+    display: block;
+    width: 100%;
+    padding: 50px 50px 0;
+
+    h1 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin: 20px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin: 20px;
+    }
+}
+
+.margin-auto {
+    margin: 0 auto;
+}
+
+.site-card {
+    background-color: #fff;
+    display: inline-block;
+    margin-bottom: 60px;
+}
+
+.site-cards:last-of-type {
+    margin-left: 0;
+}
+
+.fn-video-wrapper {
+    width: 100%;
+    position: relative;
+    padding-top: 56.25%;
+    margin-bottom: 30px;
+}
+
+iframe.fn-video {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+a[target="_blank"]:not([title]):after {
+    content: url('/images/external-link.svg');
+    opacity: .4;
+    vertical-align: middle;
+    margin: 0 5px;
+    line-height: 1rem;
 }
