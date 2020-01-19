@@ -26,7 +26,7 @@ header {
     padding-top: 50px;
     text-align: center;
     padding-bottom: 50px;
-    background-color: #ddd;
+    background-color: #eee;
     border-bottom: 1px solid #ddd;
 
     canvas {
@@ -96,7 +96,10 @@ header h2 {
         max-width: 700px;
         margin: 0 auto;
         a[rel~="author"] {
-            color: #bbb;
+            display: inline-block;
+            color: #444;
+            text-align: right;
+            width: 100%;
         }
         header {
             margin: 0;
