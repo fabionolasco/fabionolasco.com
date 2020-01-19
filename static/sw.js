@@ -17,7 +17,9 @@ var filesToCache = [
     '/images/fabionolasco-133.webp',
     '/images/fabionolasco-133.jpg',
     '/images/f1.jpg',
-    '/images/jp2/f1.webp'
+    '/images/jp2/f1.webp',
+    '/scripts/three.r95.min.js',
+    '/scripts/vanta.waves.min.js'
 ];
 self.addEventListener('install', function (e) {
     e.waitUntil(
