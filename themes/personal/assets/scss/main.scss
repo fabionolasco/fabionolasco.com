@@ -10,7 +10,7 @@ nav {
 }
 
 body {
-    background-color: #fafafa
+    background-color: #eee
 }
 
 .fn-logo,
@@ -26,7 +26,8 @@ header {
     padding-top: 50px;
     text-align: center;
     padding-bottom: 50px;
-    background-color: #eee;
+    background-color: #ddd;
+    border-bottom: 1px solid #ddd;
 
     canvas {
         opacity: 0.3;
@@ -81,6 +82,40 @@ header h2 {
 .fn-book img {
     display: inline;
     padding: 0 15px 15px 0
+}
+
+.fn-index {
+    margin: 40px;
+    article {
+        display: inline-block;
+        position: relative;
+        background-color: #fff;
+        padding: 40px 50px;
+        padding-top: 80px;
+        width: 90%;
+        max-width: 700px;
+        margin: 0 auto;
+        a[rel~="author"] {
+            color: #bbb;
+        }
+        header {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            h1 {
+                text-align: center;
+                margin: 0;
+                margin-bottom: 20px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: #ddd;
+                line-height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    }
 }
 
 .fn-services {
@@ -285,3 +320,11 @@ section .card {
     margin: 100px 0;
 }
 
+.small-bold, .fn-goals .small-bold { 
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.fn-goals li {
+    margin-bottom: 20px;
+}
