@@ -18,13 +18,10 @@
   },
   "author": "Fabio Nolasco",
   "license": "ISC",
-  "engines": {
-    "node": "6.11.3"
-  },
   "devDependencies": {
-    "concurrently": "^5.0.2",
-    "html-includes": "^4.2.0",
-    "http-server": "^0.12.1",
-    "sync-files": "^1.0.3"
+    "concurrently": "latest",
+    "html-includes": "latest",
+    "http-server": "latest",
+    "sync-files": "latest"
   }
 }

@@ -2,22 +2,43 @@
     "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js");
 </script>
 
-<!-- <script defer src="/scripts/three.r95.min.js"></script>
-<script defer src="/scripts/vanta.waves.min.js"></script>
 <script>
-    window.addEventListener('load', function () {
-        VANTA.WAVES({
-            el: "header",
-            mouseControls: true,
-            touchControls: true,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x828282
-        });
-    });
-</script> -->
+    var moved = false;
+    function start() {
+        function addScript(url, callback) {
+            var sc = document.createElement('script');
+            sc.defer = true;
+            sc.src = url;
+            sc.type = 'text/javascript';
+            sc.onload = sc.onreadystatechange = () => {
+                if (!this.readyState || this.readyState == 'complete') {
+                    callback();
+                }
+            };
+            document.body.appendChild(sc);
+        }
+        function addScript1() { addScript('/scripts/three.r95.min.js', addScript2); }
+        function addScript2() { addScript('/scripts/vanta.waves.min.js', finish); }
+        function finish() {
+            VANTA.WAVES({
+                el: "header",
+                mouseControls: true,
+                touchControls: true,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x828282
+            });
+        }
+        if (!moved) {
+            moved = true;
+            window.removeEventListener('mousemove', start, { passive: true });
+            addScript1();
+        }
+    }
+    window.addEventListener('mousemove', start, { passive: true });
+</script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TFPZE0XBR"></script>
 <script>
