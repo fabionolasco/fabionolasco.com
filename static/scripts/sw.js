@@ -1,5 +1,6 @@
 var cacheName = 'fabio-nolasco-website';
 var filesToCache = [
+    '/',
     '/index.html',
     '/404.html',
     '/contact/index.html',
