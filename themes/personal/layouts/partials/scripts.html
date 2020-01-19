@@ -2,26 +2,10 @@
     "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js");
 </script>
 
-<!-- Initiate Waves -->
+<script defer src="/scripts/three.r95.min.js"></script>
+<script defer src="/scripts/vanta.waves.min.js"></script>
 <script>
-    function loadScript(url, callback) {
-        var script1 = document.createElement('script');
-        script1.type = 'text/javascript';
-        script1.src = url;
-        script1.onload = script1.onreadystatechange = function() {
-            if (!this.readyState || this.readyState == 'complete') {
-                callback();
-            }
-        };
-        document.body.appendChild(script1);
-    }
-    function callScript1() {
-        loadScript('/scripts/three.r95.min.js', callScript2);
-    }
-    function callScript2() {
-        loadScript('/scripts/vanta.waves.min.js', finish);
-    }
-    function finish() {
+    window.addEventListener('load', function () {
         VANTA.WAVES({
             el: "header",
             mouseControls: true,
@@ -32,10 +16,6 @@
             scaleMobile: 1.00,
             color: 0x828282
         });
-    }
-
-    window.addEventListener('load', function () {
-        callScript1();
     });
 </script>
 
