@@ -1,9 +1,10 @@
 {
     "name": "FabioNolasco",
     "short_name": "FNolasco",
-    "start_url": "https://fabionolasco.com/",
+    "start_url": "/?utm_source=a2hs",
     "gcm_sender_id": "103953800507",
     "display": "standalone",
+    "crossorigin": "use-credentials",
     "background_color": "#fafafa",
     "theme_color": "#45abe1",
     "icons": [
