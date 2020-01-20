@@ -34,10 +34,14 @@
         if (!moved) {
             moved = true;
             window.removeEventListener('mousemove', start, { passive: true });
+            window.removeEventListener('touchstart', start, { passive: true });
+            window.removeEventListener('scroll', start, { passive: true });
             addScript1();
         }
     }
     window.addEventListener('mousemove', start, { passive: true });
+    window.addEventListener('touchstart', start, { passive: true });
+    window.addEventListener('scroll', start, { passive: true });
 </script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TFPZE0XBR"></script>
