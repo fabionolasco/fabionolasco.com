@@ -4,7 +4,8 @@
   "description": "This is a very simple website made with Hugo - static website generator. It was initially done simply with NPM Scripts, concatenating partial HTML files. However, the maintenance of the packages became troublesome, and the dependencies very difficult to sync. Hugo is a bigger project and will help me keep this website up-to-date.",
   "scripts": {
     "dev": "hugo server -D",
-    "build": "hugo --minify"
+    "build": "hugo --minify",
+    "compilecss": "hugo server -D && rm ./themes/personal/static/css/compiled.css && uncss http://localhost:1313 > ./themes/personal/static/css/compiled.css"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/fabionolasco/fabionolasco.com/issues"
   },
-  "homepage": "https://github.com/fabionolasco/fabionolasco.com#readme"
+  "homepage": "https://github.com/fabionolasco/fabionolasco.com#readme",
+  "dependencies": {
+    "uncss": "^0.17.2"
+  }
 }

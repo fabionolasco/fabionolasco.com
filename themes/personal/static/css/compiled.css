@@ -17,10 +17,6 @@ article, footer, header, nav, section {
     display: block
 }
 
-heaver canvas {
-    opacity: .3;
-}
-
 h1 {
     font-size: 2em;
     margin: .67em 0
@@ -646,8 +642,7 @@ section .card {
     src: url(/fonts/untitled-font-1.eot?#iefix) format("embedded-opentype"), url(/fonts/untitled-font-1.woff) format("woff"), url(/fonts/untitled-font-1.ttf) format("truetype"), url(/fonts/untitled-font-1.svg#untitled-font-1) format("svg");
     font-display: block;
     font-weight: 400;
-    font-style: normal;
-    font-display: swap
+    font-style: normal
 }
 
 [class*=" icon-"]:before {
@@ -744,4 +739,4 @@ a[target="_blank"]:not([title]):after {
     line-height: 1rem
 }
 
-.version123 { color: black; }
+
