@@ -43,6 +43,12 @@
     window.addEventListener('mousemove', start, { passive: true });
     window.addEventListener('touchstart', start, { passive: true });
     window.addEventListener('scroll', start, { passive: true });
+    setTimeout(() => {
+        var secondLoad = window.performance.getEntriesByName(document.location.origin + "/scripts/vanta.waves.min.js");
+        if (secondLoad.length) {
+            start();
+        }
+    }, 16);
 </script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TFPZE0XBR"></script>

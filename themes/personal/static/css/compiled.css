@@ -675,6 +675,10 @@ section .card {
     padding: 4px 8px
 }
 
+.fn-icons div.icon-envelope {
+    font-size: .9rem;
+}
+
 .fn-book h3 {
     margin-top: 20px
 }
