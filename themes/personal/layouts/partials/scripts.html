@@ -19,6 +19,7 @@
         }
         function addScript1() { addScript('/scripts/three.r95.min.js', addScript2); }
         function addScript2() { addScript('/scripts/vanta.waves.min.js', finish); }
+        localStorage.setItem('FN', 1);
         function finish() {
             VANTA.WAVES({
                 el: "header",
@@ -43,12 +44,9 @@
     window.addEventListener('mousemove', start, { passive: true });
     window.addEventListener('touchstart', start, { passive: true });
     window.addEventListener('scroll', start, { passive: true });
-    setTimeout(() => {
-        var secondLoad = window.performance.getEntriesByName(document.location.origin + "/scripts/vanta.waves.min.js");
-        if (secondLoad.length) {
-            start();
-        }
-    }, 16);
+    if (localStorage.getItem('FN')) {
+        start();
+    }
 </script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TFPZE0XBR"></script>
