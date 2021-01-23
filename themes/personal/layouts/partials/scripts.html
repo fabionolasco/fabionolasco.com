@@ -19,7 +19,6 @@
         }
         function addScript1() { addScript('/scripts/three.r95.min.js', addScript2); }
         function addScript2() { addScript('/scripts/vanta.waves.min.js', finish); }
-        localStorage.setItem('FN', 1);
         function finish() {
             VANTA.WAVES({
                 el: "header",
@@ -47,6 +46,7 @@
     if (localStorage.getItem('FN')) {
         start();
     }
+    localStorage.setItem('FN', 1);
 </script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6TFPZE0XBR"></script>
