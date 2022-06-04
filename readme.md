@@ -1,7 +1,23 @@
 # fabionolasco.com
 
-This is a very simple website made with Hugo - static website generator. It was initially done simply with NPM Scripts, concatenating partial HTML files. However, the maintenance of the packages became troublesome, and the dependencies very difficult to sync. Hugo is a bigger project and will help me keep this website up-to-date.
+### About
 
-## Check the Google Page Speed or Chrome Audit
+Simple website create to experiment with [Hugo](https://gohugo.io/) - static website generator.
 
-I took advantage of this exercise to also experiment with things like **Adaptive Images**,  **Google PageSpeed Insights** ([click here to test](https://developers.google.com/speed/pagespeed/insights/?url=https://fabionolasco.com)) and **CDN Servers** like Netlify. There are many room for improvements, but it is certainly great for a pesonal website.
+---
+
+### Technologies used
+
+- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `Hugo` - Static Website Generator
+- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `Service Worker`  - For offline availability
+- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `ThreeJS` - For art
+- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `Netlify` - Hosting
+- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `Adaptive images` - Performance
+
+---
+
+## Google Page Speed
+
+ **Google PageSpeed Insights** ([results here](https://pagespeed.web.dev/report?utm_source=psi&utm_medium=redirect&url=https%3A%2F%2Ffabionolasco.com&form_factor=desktop))  100% scorre.
+ 
+ 

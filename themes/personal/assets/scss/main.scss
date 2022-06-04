@@ -1242,3 +1242,15 @@ a[target="_blank"]:not([title]):after {
         display: inline-block;
     }
 }
+
+.fn-goals li {
+    margin-bottom: 10px;
+}
+
+.fn-goals li ul li {
+    margin-bottom: 0;
+}
+
+.small-bold {
+    font-weight: bolder;
+}
