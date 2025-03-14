@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/fabionolasco/fabionolasco.com#readme",
   "dependencies": {
+    "canvas": "^3.1.0",
     "uncss": "^0.17.2"
   }
 }
