@@ -335,24 +335,22 @@ nav.fn-nav {
 
 .fn-hero h1 { margin: 0 0 1.5rem; }
 
-.fn-h1-name {
-    display: block;
-    font-family: $sans;
-    font-size: 1.0625rem;
+.fn-eyebrow {
+    margin: 0 0 1rem;
+    font-size: .8125rem;
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: .1em;
+    text-transform: uppercase;
     color: $link;
-    margin-bottom: .75rem;
 }
 
 .fn-h1-headline {
-    display: block;
     font-size: 2.35rem;
     line-height: 1.08;
     font-weight: 600;
     letter-spacing: -0.015em;
+    max-width: 17ch;
     font-variation-settings: "opsz" 60;
-    > span { display: block; }
 }
 
 @media screen and (min-width: 40em) {
@@ -388,6 +386,7 @@ nav.fn-nav {
         color: $slate;
         line-height: 1.4;
     }
+    strong { color: $ink; font-weight: 600; font-size: 1.05rem; }
     a { margin-top: .4rem; }
 }
 
@@ -498,6 +497,18 @@ nav.fn-nav {
 }
 
 .fn-actions:empty { display: none; }
+
+/* ---------- Value proposition ---------- */
+
+.fn-value h2 { max-width: 12ch; }
+
+@media screen and (max-width: 51.9375em) {
+    .fn-value .fn-split { gap: .75rem; }
+}
+
+@media screen and (min-width: 52em) {
+    .fn-value h2 { font-size: 2.5rem; line-height: 1.1; }
+}
 
 /* ---------- Facts + career track ---------- */
 
