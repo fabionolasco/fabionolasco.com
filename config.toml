@@ -1,4 +1,36 @@
 baseURL = "https://fabionolasco.com/"
 languageCode = "en-us"
-title = "Fabio Nolasco - Front-end Architect"
+title = "Fabio Nolasco"
 theme = "personal"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Engineering leader with 20+ years of experience in enterprise software, globally distributed teams, developer experience, and AI-assisted engineering."
+  ogImage = "/images/fabionolasco-512.jpg"
+  linkedin = "https://www.linkedin.com/in/fabionolasco/"
+  github = "https://github.com/fabionolasco"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+[[menu.main]]
+  name = "Leadership & Impact"
+  url = "/impact/"
+  weight = 2
+[[menu.main]]
+  name = "AI Engineering"
+  url = "/ai-assisted-engineering/"
+  weight = 3
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 4
+[[menu.main]]
+  name = "Book"
+  url = "/book/"
+  weight = 5
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 6

@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" (dict "heroType" "small") -}}
-
-        <h1 class="fn-404">Ai ai ai... page not found! Sorry!</h1>
-
-        {{ partial "book.html" . }}
-        {{ partial "services.html" . }}
-        {{- partial "footer.html" . -}}
-        {{- partial "scripts.html" . -}}
-    </body>
-</html>
+{{ define "main" }}
+<section class="fn-section">
+    <div class="fn-container text-center">
+        <h2>Sorry, this page could not be found.</h2>
+        <p>The page may have moved as part of a recent update to this website.</p>
+        <p class="fn-actions fn-actions-center">
+            <a class="button" href="/">Go to the homepage</a>
+            <a class="button secondary" href="/impact/">Leadership &amp; Impact</a>
+            <a class="button secondary" href="/contact/">Contact</a>
+        </p>
+    </div>
+</section>
+{{ end }}

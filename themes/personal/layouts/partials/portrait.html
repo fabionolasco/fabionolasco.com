@@ -1,0 +1,6 @@
+{{- /* dict: sizes, priority (bool), class */ -}}
+<picture class="{{ .class }}">
+    <source type="image/webp" srcset="/images/portrait-160.webp 160w, /images/portrait-272.webp 272w, /images/portrait-544.webp 544w" sizes="{{ .sizes }}">
+    <img src="/images/portrait-544.jpg" alt="Portrait of Fabio Nolasco" width="544" height="544"
+        {{- if .priority }} fetchpriority="high"{{ end }}>
+</picture>

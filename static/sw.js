@@ -1,40 +1,61 @@
-var cacheName = 'fabio-nolasco-website';
-var filesToCache = [
+// Network-first for pages so visitors always get the latest content;
+// cache-first for static assets. Bump CACHE_NAME when precached assets change.
+var CACHE_NAME = 'fabio-nolasco-website-v4';
+var PRECACHE = [
     '/',
-    '/index.html',
+    '/impact/',
+    '/ai-assisted-engineering/',
+    '/about/',
+    '/book/',
+    '/contact/',
     '/404.html',
-    '/contact/index.html',
-    '/about/index.html',
-    '/404/index.html',
-    '/fonts/untitled-font-1.eot',
-    '/fonts/untitled-font-1.svg',
-    '/fonts/untitled-font-1.ttf',
-    '/fonts/untitled-font-1.woff',
+    '/fonts/source-serif-4-latin-opsz-normal.woff2',
+    '/fonts/public-sans-latin-wght-normal.woff2',
+    '/images/portrait-160.webp',
+    '/images/portrait-272.webp',
     '/images/jp2/professional-front-end-architecture-book.webp',
-    '/images/professional-front-end-architecture-book.jpg',
-    '/images/fabionolasco-266.jpg',
-    '/images/fabionolasco-266.webp',
-    '/images/fabionolasco-133.webp',
-    '/images/fabionolasco-133.jpg',
-    '/images/f1.jpg',
-    '/images/jp2/f1.webp',
-    '/scripts/three.r95.min.js',
-    '/scripts/vanta.waves.min.js'
+    '/images/professional-front-end-architecture-book.jpg'
 ];
-self.addEventListener('install', function (e) {
-    e.waitUntil(
-        caches.open(cacheName).then(function (cache) {
-            return cache.addAll(filesToCache);
-        })
+
+self.addEventListener('install', function (event) {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(function (cache) { return cache.addAll(PRECACHE); })
+            .then(function () { return self.skipWaiting(); })
     );
 });
-self.addEventListener('activate', event => {
-    event.waitUntil(self.clients.claim());
+
+self.addEventListener('activate', function (event) {
+    event.waitUntil(
+        caches.keys().then(function (keys) {
+            return Promise.all(keys.filter(function (key) { return key !== CACHE_NAME; })
+                .map(function (key) { return caches.delete(key); }));
+        }).then(function () { return self.clients.claim(); })
+    );
 });
-self.addEventListener('fetch', event => {
+
+self.addEventListener('fetch', function (event) {
+    var request = event.request;
+    if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) {
+        return;
+    }
+    if (request.mode === 'navigate' || (request.headers.get('accept') || '').indexOf('text/html') !== -1) {
+        event.respondWith(
+            fetch(request).then(function (response) {
+                var copy = response.clone();
+                if (response.ok) {
+                    caches.open(CACHE_NAME).then(function (cache) { cache.put(request, copy); });
+                }
+                return response;
+            }).catch(function () {
+                return caches.match(request).then(function (cached) {
+                    return cached || caches.match('/404.html');
+                });
+            })
+        );
+        return;
+    }
     event.respondWith(
-        caches.match(event.request, { ignoreSearch: true }).then(response => {
-            return response || fetch(event.request);
-        })
+        caches.match(request).then(function (cached) { return cached || fetch(request); })
     );
 });

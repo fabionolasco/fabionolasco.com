@@ -1,59 +1,52 @@
 <script>
     "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js");
+    (function () {
+        function fill() {
+            var u = ["gomide", "fabio"].join(""), d = ["gmail", "com"].join("."), addr = u + "@" + d;
+            var els = document.querySelectorAll(".js-email");
+            for (var i = 0; i < els.length; i++) {
+                var a = document.createElement("a");
+                a.href = "mailto:" + addr;
+                a.textContent = els[i].getAttribute("data-label") || addr;
+                if (els[i].getAttribute("data-class")) { a.className = els[i].getAttribute("data-class"); }
+                els[i].parentNode.replaceChild(a, els[i]);
+            }
+        }
+        document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", fill) : fill();
+    })();
 </script>
 
 <script>
-    var moved = false;
-    function start() {
-        function addScript(url, callback) {
-            var sc = document.createElement('script');
-            sc.defer = true;
-            sc.src = url;
-            sc.type = 'text/javascript';
-            sc.onload = sc.onreadystatechange = () => {
-                if (!this.readyState || this.readyState == 'complete') {
-                    callback();
-                }
-            };
-            document.body.appendChild(sc);
+    // Load Google Analytics only after the visitor interacts, so it never delays page rendering.
+    (function () {
+        var loaded = false, events = ["scroll", "pointerdown", "keydown", "touchstart", "mousemove"];
+        function load() {
+            if (loaded) { return; }
+            loaded = true;
+            events.forEach(function (e) { window.removeEventListener(e, load, { passive: true }); });
+            var s = document.createElement("script");
+            s.async = true;
+            s.src = "https://www.googletagmanager.com/gtag/js?id=G-6TFPZE0XBR";
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () { dataLayer.push(arguments); };
+            gtag("js", new Date());
+            gtag("config", "G-6TFPZE0XBR");
         }
-        function addScript1() { addScript('/scripts/three.r95.min.js', addScript2); }
-        function addScript2() { addScript('/scripts/vanta.waves.min.js', finish); }
-        function finish() {
-            VANTA.WAVES({
-                el: "header",
-                mouseControls: true,
-                touchControls: true,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                scale: 1.00,
-                scaleMobile: 1.00,
-                color: 0x828282
-            });
-            document.getElementById('youtube').src = 'https://www.youtube.com/embed/yzGxI61p6DY';
-        }
-        if (!moved) {
-            moved = true;
-            window.removeEventListener('mousemove', start, { passive: true });
-            window.removeEventListener('touchstart', start, { passive: true });
-            window.removeEventListener('scroll', start, { passive: true });
-            addScript1();
-        }
-    }
-    window.addEventListener('mousemove', start, { passive: true });
-    window.addEventListener('touchstart', start, { passive: true });
-    window.addEventListener('scroll', start, { passive: true });
-    if (localStorage.getItem('FN')) {
-        start();
-    }
-    localStorage.setItem('FN', 1);
-</script>
+        events.forEach(function (e) { window.addEventListener(e, load, { passive: true }); });
+    })();
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6TFPZE0XBR"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-6TFPZE0XBR');
+    // Replace a video preview with the YouTube player when the visitor asks for it.
+    document.addEventListener("click", function (e) {
+        var btn = e.target.closest && e.target.closest(".fn-video-facade");
+        if (!btn) { return; }
+        var iframe = document.createElement("iframe");
+        iframe.className = "fn-video";
+        iframe.src = "https://www.youtube-nocookie.com/embed/" + btn.getAttribute("data-video") + "?autoplay=1";
+        iframe.title = btn.getAttribute("data-title");
+        iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        btn.parentNode.replaceChild(iframe, btn);
+        iframe.focus();
+    });
 </script>

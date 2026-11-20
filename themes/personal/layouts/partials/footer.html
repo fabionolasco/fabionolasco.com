@@ -1,7 +1,11 @@
-<footer class="fn-footer grid-x">
-    <p class="cell text-center">
-        Disclaimer: The opinions published here are my own and <span class="text-bold">not</span> the views of employers.
-    </p>
-    <span class="cell text-center">Fabio Nolasco © <span id="date">2022</span></div>
-    <script>document.getElementById('date').innerHTML = (new Date()).getFullYear()</script>
+<footer class="fn-footer">
+    <div class="fn-container">
+        <nav class="fn-footer-links" aria-label="Footer">
+            <a href="{{ .Site.Params.linkedin }}" rel="noopener noreferrer" title="LinkedIn profile">LinkedIn</a>
+            <a href="{{ .Site.Params.github }}" rel="noopener noreferrer" title="GitHub profile">GitHub</a>
+            <a href="/contact/">Contact</a>
+        </nav>
+        <p>Opinions published here are my own and do not represent current or former employers.</p>
+        <p>&copy; {{ now.Year }} Fabio Nolasco</p>
+    </div>
 </footer>

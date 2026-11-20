@@ -1,17 +1,34 @@
+{{- $title := .Params.seoTitle | default (cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title)) -}}
+{{- $desc := .Params.description | default .Site.Params.description -}}
+{{- $image := absURL .Site.Params.ogImage -}}
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: www.google-analytics.com www.googletagmanager.com www.youtube.com; img-src * www.google-analytics.com www.googletagmanager.com www.youtube.com data:; media-src * www.youtube.com; style-src 'self' 'unsafe-inline'; script-src 'self' www.google-analytics.com www.googletagmanager.com 'unsafe-inline'; object-src 'self' 'unsafe-inline'; font-src 'self' data:; worker-src 'self' https:;connect-src 'self' www.google-analytics.com www.googletagmanager.com https:;" />
 
-<title>{{ .Site.Title }} - {{ .Title  }}</title>
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}" />
+<meta name="author" content="Fabio Nolasco" />
+<link rel="canonical" href="{{ .Permalink }}" />
 
-<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png" />
-<link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png" />
-<link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png" />
-<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png" />
-<link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png" />
-<link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png" />
-<link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png" />
+<meta property="og:type" content="{{ if .IsHome }}profile{{ else }}website{{ end }}" />
+<meta property="og:site_name" content="Fabio Nolasco" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $desc }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:image" content="{{ $image }}" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="Portrait of Fabio Nolasco" />
+<meta property="og:locale" content="en_US" />
+{{- if .IsHome }}
+<meta property="profile:first_name" content="Fabio" />
+<meta property="profile:last_name" content="Nolasco" />
+{{- end }}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $desc }}" />
+<meta name="twitter:image" content="{{ $image }}" />
+
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
@@ -19,33 +36,40 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
 <meta name="msapplication-TileColor" content="#45abe1" />
 <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png" />
-
 <meta name="theme-color" content="#45abe1" />
 <link rel="manifest" href="/manifest/manifest.json" />
 
-<link rel="preconnect" href="/" />
-<link rel="preconnect" href="/about" />
-<link rel="preconnect" href="/contact" />
-<link rel="preconnect" href="/fonts/untitled-font-1.woff" />
-<link rel="dns-prefetch" href="https://fabionolasco.com/" />
-<link rel="dns-prefetch" href="https://fabionolasco.com/about" />
-<link rel="dns-prefetch" href="https://fabionolasco.com/contact" />
-<link rel="dns-prefetch" href="https://fabionolasco.com/fonts/untitled-font-1.woff" />
+{{- if or .IsHome (eq .RelPermalink "/about/") }}
+<script type="application/ld+json">
+{{ dict
+    "@context" "https://schema.org"
+    "@type" "Person"
+    "name" "Fabio Nolasco"
+    "url" .Site.BaseURL
+    "image" $image
+    "jobTitle" "Associate Professor of Computer Science"
+    "description" .Site.Params.description
+    "worksFor" (dict "@type" "CollegeOrUniversity" "name" "University of North Carolina at Charlotte")
+    "alumniOf" (slice (dict "@type" "CollegeOrUniversity" "name" "North Carolina State University") (dict "@type" "CollegeOrUniversity" "name" "Universidade Federal de Viçosa"))
+    "knowsLanguage" (slice "English" "Portuguese" "Spanish")
+    "knowsAbout" (slice "Engineering Leadership" "AI-Assisted Software Engineering" "Developer Experience" "Software Architecture" "Enterprise Architecture")
+    "sameAs" (slice .Site.Params.linkedin .Site.Params.github)
+    | jsonify | safeJS }}
+</script>
+{{- end }}
+{{- if eq .RelPermalink "/book/" }}
+<script type="application/ld+json">
+{{ dict
+    "@context" "https://schema.org"
+    "@type" "Book"
+    "name" "Professional Front-end Architecture"
+    "author" (dict "@type" "Person" "name" "Fabio Nolasco" "url" .Site.BaseURL)
+    "url" "https://www.amazon.com/dp/1726146456"
+    "image" (absURL "/images/professional-front-end-architecture-book.jpg")
+    | jsonify | safeJS }}
+</script>
+{{- end }}
 
-<link rel="dns-prefetch" href="https://www.google-analytics.com">
-<link rel="dns-prefetch" href="https://www.googletagmanager.com/">
-<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-<link rel="preconnect" href="https://www.googletagmanager.com/"  crossorigin>
-
-<link rel="dns-prefetch" href="https://www.youtube.com/embed/yzGxI61p6DY">
-<link rel="preconnect" href="https://www.youtube.com/embed/yzGxI61p6DY">
-<link rel="preconnect" href="https://i.ytimg.com">
-<link rel="preconnect" href="https://i9.ytimg.com">
-<link rel="preconnect" href="https://s.ytimg.com">
-
-<link href="https://www.amazon.com/dp/1726146456/ref=sr_1_1?ie=UTF8&qid=1535197414&sr=8-1&keywords=professional+front-end+architecture&pldnSite=1" rel="preconnect" crossorigin>
-<link rel="preconnect" href="https://www.amazon.com/dp/1726146456/ref=sr_1_1?ie=UTF8&qid=1535197414&sr=8-1&keywords=professional+front-end+architecture&pldnSite=1">
-
-<meta name="Description" content="Fabio Nolasco - Front-end Architect - Personal website">
-
+<link rel="preload" href="/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
 {{ partial "css.html" . }}

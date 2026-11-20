@@ -2,7 +2,7 @@
 
 ### About
 
-Simple website create to experiment with [Hugo](https://gohugo.io/) - static website generator.
+Professional website of Fabio Nolasco, built with [Hugo](https://gohugo.io/) (static website generator).
 
 ---
 
@@ -10,7 +10,6 @@ Simple website create to experiment with [Hugo](https://gohugo.io/) - static web
 
 - `Hugo` - Static Website Generator
 - `Service Worker`  - For offline availability
-- `ThreeJS` - For art
 - `Netlify` - Hosting
 - `Adaptive images` - Performance
 
@@ -18,6 +17,6 @@ Simple website create to experiment with [Hugo](https://gohugo.io/) - static web
 
 ## Google Page Speed
 
- **Google PageSpeed Insights** ([results here](https://pagespeed.web.dev/report?utm_source=psi&utm_medium=redirect&url=https%3A%2F%2Ffabionolasco.com&form_factor=desktop))  100% scorre.
+ **Google PageSpeed Insights** ([results here](https://pagespeed.web.dev/report?utm_source=psi&utm_medium=redirect&url=https%3A%2F%2Ffabionolasco.com&form_factor=desktop))  100% score.
  
  

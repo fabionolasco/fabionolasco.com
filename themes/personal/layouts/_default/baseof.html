@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{- partial "head.html" . -}}
-    <body class="page-{{.Page.Params.title}}">
-        {{- partial "header.html" (dict "heroType" "big" "pParams" .Page.Params ) -}}
+<head>
+{{- partial "head.html" . -}}
+</head>
+<body class="page-{{ if .IsHome }}home{{ else if .File }}{{ .File.ContentBaseName }}{{ else }}{{ .Kind }}{{ end }}">
+    <a class="fn-skip-link" href="#main">Skip to main content</a>
+    {{- partial "header.html" . -}}
+    <main id="main" tabindex="-1">
         {{- block "main" . }}{{- end }}
-        {{ partial "book.html" . }}
-        {{- partial "partner-sites.html" . -}}
-        {{ partial "services.html" . }}
-        {{- partial "footer.html" . -}}
-        {{- partial "scripts.html" . -}}
-    </body>
+    </main>
+    {{- partial "footer.html" . -}}
+    {{- partial "scripts.html" . -}}
+</body>
 </html>

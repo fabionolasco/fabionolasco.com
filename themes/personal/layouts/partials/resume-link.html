@@ -1,0 +1,4 @@
+{{- /* Renders only when static/resume.pdf exists. Pass a dict with "class". */ -}}
+{{- if os.FileExists "static/resume.pdf" -}}
+<a class="{{ .class | default "button secondary" }}" href="/resume.pdf" download>Download Résumé <span class="show-for-sr">(PDF)</span></a>
+{{- end -}}

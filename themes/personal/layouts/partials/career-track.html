@@ -1,0 +1,54 @@
+{{- $c := .Params.career -}}
+{{- $span := float $c.span -}}
+<figure class="fn-track" aria-labelledby="track-caption">
+    <figcaption id="track-caption" class="fn-track-caption">
+        <h2>Career track</h2>
+        <p>From hands-on engineering to global director roles, with university teaching in parallel since 2019.</p>
+    </figcaption>
+
+    {{- /* Visual chart. Positions are percentages of the 2013–2026 span: horizontal on wide screens, vertical on phones. */}}
+    <div class="fn-track-chart" aria-hidden="true">
+        <div class="fn-track-years">
+            {{- range $c.years }}
+            <span style="--s: {{ div (mul (float (sub . 2013)) 12.0) $span | mul 100.0 }}">{{ . }}</span>
+            {{- end }}
+        </div>
+        <div class="fn-track-orgs">
+            {{- range $c.orgs }}
+            <span style="--s: {{ mul (div (float .start) $span) 100.0 }}; --w: {{ mul (div (float (sub .end .start)) $span) 100.0 }}">{{ .name }}</span>
+            {{- end }}
+        </div>
+        <div class="fn-track-lane fn-track-lane-industry">
+            <span class="fn-track-lane-name">Industry</span>
+            <div class="fn-track-bars">
+                {{- range $i, $r := $c.industry }}
+                <div class="fn-track-bar{{ if eq $r.org "AIG" }} is-aig{{ end }}" style="--s: {{ mul (div (float $r.start) $span) 100.0 }}; --w: {{ mul (div (float (sub $r.end $r.start)) $span) 100.0 }}; --i: {{ $i }}">
+                    <span class="fn-track-org">{{ $r.org }}</span>
+                    <span class="fn-track-role">{{ $r.short }}</span>
+                </div>
+                {{- end }}
+            </div>
+        </div>
+        <div class="fn-track-lane fn-track-lane-academia">
+            <span class="fn-track-lane-name">Academia</span>
+            <div class="fn-track-bars">
+                {{- range $c.academia }}
+                <div class="fn-track-bar is-academia" style="--s: {{ mul (div (float .start) $span) 100.0 }}; --w: {{ mul (div (float (sub .end .start)) $span) 100.0 }}; --i: 6">
+                    <span class="fn-track-org">{{ .org }}</span>
+                    <span class="fn-track-role">{{ .short }}</span>
+                </div>
+                {{- end }}
+            </div>
+        </div>
+    </div>
+
+    {{- /* Text version for screen readers. */}}
+    <ol class="fn-track-list show-for-sr" aria-label="Career history">
+        {{- range $c.industry }}
+        <li>{{ .dates }}: {{ .role }}, {{ .org }}.{{ with .note }} {{ . }}.{{ end }}</li>
+        {{- end }}
+        {{- range $c.academia }}
+        <li>{{ .dates }}, in parallel: {{ .role }}, {{ .org }}.{{ with .note }} {{ . }}.{{ end }}</li>
+        {{- end }}
+    </ol>
+</figure>

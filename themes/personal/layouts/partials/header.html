@@ -1,75 +1,64 @@
-<nav class="fn-nav">
-    <ul>
-        <li>
-        <a href="/" id="fn-link-home" 
-        class="{{ if eq .pParams.title "Home" }}selected{{ end }}">Home</a>
-        </li>
-        <li>
-            <a href="/about" id="fn-link-about"
-            class="{{ if eq .pParams.title "About" }}selected{{ end }}">About</a>
-        </li>
-        <li>
-            <a href="/contact" id="fn-link-contact"
-            class="{{ if eq .pParams.title "Contact" }}selected{{ end }}">Contact</a>
-        </li>
-    </ul>
-</nav>
+{{- $hero := .Params.hero | default (cond .IsHome "big" "small") -}}
+{{- $current := . -}}
+<div class="fn-topbar">
+    <div class="fn-container fn-topbar-inner">
+        <a class="fn-wordmark" href="/"{{ if .IsHome }} aria-current="page"{{ end }}>Fabio Nolasco</a>
+        <nav class="fn-nav" aria-label="Main">
+            <ul>
+                {{- range .Site.Menus.main }}
+                {{- if ne .URL "/" }}
+                {{- $active := eq $current.RelPermalink .URL }}
+                <li><a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+                {{- end }}
+                {{- end }}
+            </ul>
+        </nav>
+    </div>
+</div>
 
-<header class="grid-x fn-link-home fn-hero-{{.heroType}}" 
-    data-name="fn-link-home fn-hero-{{.heroType}}">
-
-    {{ partial "photo.html" . }}
-
-    {{ if eq .heroType "big" }}
-        <div class="cell small-12">
-            <h1>Fabio Nolasco</h1>
+{{ if eq $hero "big" }}
+<header class="fn-hero">
+    <div class="fn-container fn-hero-grid">
+        <div class="fn-hero-text">
+            <h1>
+                <span class="fn-h1-name">Fabio Nolasco</span>
+                <span class="fn-h1-headline"><span>Engineering Leadership.</span> <span>AI-Native Delivery.</span> <span>Enterprise Scale.</span></span>
+            </h1>
+            <div class="fn-intro">
+                <p>I help organizations build high-performing engineering teams, scale effective development practices, and turn complex technology challenges into reliable software delivery.</p>
+                <p>With 20+ years in software engineering, 12+ years leading distributed teams, and ongoing work as an Associate Professor at UNC Charlotte, I combine field-tested enterprise practice with current academic thinking on AI-assisted development and software architecture, along with a strong commitment to developing engineers.</p>
+            </div>
+            <p class="fn-actions">
+                <a class="button" href="/impact/">Explore my impact</a>
+                {{ partial "resume-link.html" (dict "class" "button secondary") }}
+                <a class="button secondary" href="/contact/">Contact me</a>
+            </p>
         </div>
-        <div class="cell small-12">
-            <h2>Role 1: Global Director of Frontend Engineering (UI/UX)<br>
-                Role 2: Associate Professor at University of North Carolina</h2>
-        </div>
-        <div class="cell small-12">
-            <span class="fn-desc">
-                "I'm passionate about the connections between Front-end Development and Software Architecture, System
-                Design, User Experience, IoT and Artificial Intelligence."
-            </span>
-        </div>
-        <div class="cell small-12 fn-icons">
-            <a href="/contact" rel="noopener  noreferrer" title="Contact" target="_blank">
-                <span class="show-for-sr">Contact</span>
-                <div class="icon icon-envelope">&nbsp;</div>
-            </a>
-            <a href="https://www.linkedin.com/in/fabionolasco/" rel="noopener  noreferrer" title="Go to my LinkedIn"
-                target="_blank">
-                <span class="show-for-sr">LinkedIn</span>
-                <div class="icon icon-linkedin">&nbsp;</div>
-            </a>
-            <a href="https://github.com/fabionolasco" rel="noopener  noreferrer" title="Go to my Github" target="_blank">
-                <span class="show-for-sr">GitHub</span>
-                <div class="icon icon-github">&nbsp;</div>
-            </a>
-        </div>
-    {{ end }}
-
-    {{ if eq .heroType "small" }}
-        <div class="cell small-12 fn-icons">
-            <h1>Fabio Nolasco</h1>
-            <a href="/contact" rel="noopener  noreferrer" title="Contact" target="_blank">
-                <span class="show-for-sr">Contact</span>
-                <div class="icon icon-envelope">&nbsp;</div>
-            </a>
-            <a href="https://www.linkedin.com/in/fabionolasco/" rel="noopener  noreferrer" title="Go to my LinkedIn" target="_blank">
-                <span class="show-for-sr">LinkedIn</span>
-                <div class="icon icon-linkedin">&nbsp;</div>
-            </a>
-            <a href="https://github.com/fabionolasco" rel="noopener  noreferrer" title="Go to my Github" target="_blank">
-                <span class="show-for-sr">GitHub</span>
-                <div class="icon icon-github">&nbsp;</div>
-            </a>
-        </div>
-        <div class="cell small-12">
-            <h2>{{ .pParams.title }}</h2>
-        </div>
-    {{ end }}
-
+        <figure class="fn-hero-portrait">
+            {{ partial "portrait.html" (dict "sizes" "(min-width: 56em) 272px, 112px" "priority" true "class" "fn-portrait") }}
+            <figcaption>
+                <span>Global Director (GenAI), AIG</span>
+                <span>Associate Professor, UNC Charlotte</span>
+                <a href="{{ .Site.Params.linkedin }}" rel="noopener noreferrer" title="Fabio Nolasco on LinkedIn">LinkedIn profile</a>
+            </figcaption>
+        </figure>
+    </div>
 </header>
+{{ else }}
+<header class="fn-page-header">
+    <div class="fn-container fn-page-header-grid">
+        <div>
+            <h1>{{ .Title }}</h1>
+            {{ with .Params.subtitle }}<p class="fn-subtitle">{{ . }}</p>{{ end }}
+        </div>
+        <a class="fn-page-portrait" href="/about/" title="About Fabio Nolasco">
+            {{ partial "portrait.html" (dict "sizes" "(min-width: 48em) 160px, 72px" "class" "fn-portrait") }}
+            <span class="fn-page-portrait-text">
+                <strong>Fabio Nolasco</strong>
+                <span>Global Director (GenAI), AIG</span>
+                <span>Associate Professor, UNC Charlotte</span>
+            </span>
+        </a>
+    </div>
+</header>
+{{ end }}
